@@ -1,18 +1,14 @@
-# Terço Virtual — versão responsiva
+# Terço Virtual — A fé também pode estar na tecnologia
 
-## Como abrir
-1. Extraia a pasta `terco-virtual-responsivo`.
-2. Abra a pasta no VS Code.
-3. Abra `index.html` no navegador (ou use a extensão Live Server).
+O **Terço Virtual** nasceu com o propósito de aproximar as crianças da fé católica por meio da tecnologia.
 
-## Arquivos
-- `index.html`: estrutura da página e desenho-base do crucifixo/medalha.
-- `style.css`: aparência e adaptação para computador, tablet e celular.
-- `script.js`: funcionamento original das orações e navegação, com ajuste visual da posição das contas para um terço em formato de V arredondado.
+Vivemos em uma época em que crianças e adolescentes passam boa parte do seu tempo utilizando celulares, tablets e outros dispositivos digitais. Pensando nessa realidade, surgiu a ideia de transformar a tecnologia em uma ferramenta positiva de evangelização, educação e aprendizado religioso.
 
-O ajuste foi concentrado na geometria SVG e no CSS responsivo.
+O objetivo do projeto é ensinar crianças a rezar o Santo Terço de maneira simples, acessível, interativa e agradável, utilizando um ambiente digital que apresenta as orações, os mistérios e a sequência de cada etapa da oração.
 
+Mais do que criar um aplicativo, a intenção é oferecer uma nova maneira de despertar o interesse das crianças pela oração, incentivando o contato com a fé, o conhecimento da tradição católica e a construção de momentos de espiritualidade em família.
 
-## Ajustes desta versão
-- Sequência inicial: Creio, Pai-Nosso, três Ave-Marias e outro Pai-Nosso, sem Glória ao Pai na abertura.
-- Marcador da Salve-Rainha reposicionado mais abaixo para reduzir a sobreposição com as contas.
+O Terço Virtual busca mostrar que a tecnologia não precisa afastar as novas gerações dos valores religiosos. Pelo contrário, quando utilizada com propósito, ela pode se tornar uma grande aliada na transmissão da fé.
+
+**Nossa missão é transformar alguns minutos diante de uma tela em momentos de oração e aprendizado.**
+
