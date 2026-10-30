@@ -1,0 +1,148 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#102b55">
+  <title>Terço Virtual</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="logo">✝</div>
+    <div>
+      <h1>Terço Virtual</h1>
+      <p>Um momento de fé e oração</p>
+    </div>
+    <button id="helpButton" class="help-button" aria-label="Ajuda">?</button>
+  </header>
+
+  <main class="container">
+    <section class="intro">
+      <span class="eyebrow">SEU MOMENTO DE FÉ</span>
+      <h2>Vamos rezar o terço?</h2>
+      <p>Acompanhe cada oração e medite nos mistérios. Você pode tocar nas contas ou seguir a sequência guiada.</p>
+
+      <div class="intro-actions">
+        <button id="startButton" class="primary">Começar a rezar</button>
+        <button id="guidedButton" class="secondary">Modo guiado</button>
+      </div>
+    </section>
+
+    <section class="main-grid">
+      <article class="panel rosary-panel">
+        <div class="panel-heading">
+          <div>
+            <span class="eyebrow">ROSÁRIO INTERATIVO</span>
+            <h2>Toque em uma conta</h2>
+          </div>
+          <span id="progress" class="progress">Pronto para começar</span>
+        </div>
+
+        <div class="rosary-container">
+          <svg id="rosary" viewBox="0 0 460 620"
+               role="img" aria-label="Desenho interativo de um terço">
+            <g id="rosaryLines"></g>
+            <g id="rosaryBeads"></g>
+
+            <g id="salveMarker" role="button" tabindex="0"
+               aria-label="Salve-Rainha">
+              <circle cx="230" cy="422" r="21"
+                      fill="#fffaf0" stroke="#d6aa55" stroke-width="2.5"/>
+              <text x="230" y="430" text-anchor="middle"
+                    font-size="21">🌹</text>
+            </g>
+
+
+<g id="cross" role="button" tabindex="0"
+   aria-label="Crucifixo: rezar o Creio">
+  <path d="M230 550 V610 M207 571 H253"
+        stroke="#b9c4d1" stroke-width="12"
+        stroke-linecap="round"/>
+  <path d="M230 550 V610 M207 571 H253"
+        stroke="#d5a64c" stroke-width="7"
+        stroke-linecap="round"/>
+  <path d="M230 550 V610 M207 571 H253"
+        stroke="#fff0c7" stroke-width="2"
+        stroke-linecap="round"/>
+</g>
+
+          </svg>
+        </div>
+
+        <div class="legend">
+          <span><i class="legend-dot selected-dot"></i> Selecionada</span>
+          <span><i class="legend-dot"></i> Ave-Maria</span>
+          <span><i class="legend-dot large-dot"></i> Conta principal</span>
+        </div>
+
+        <p class="tip">Comece no crucifixo e acompanhe o caminho das contas.</p>
+      </article>
+
+      <article class="panel prayer-panel" aria-live="polite">
+        <div class="panel-heading">
+          <span class="eyebrow">ORAÇÃO ATUAL</span>
+          <span id="stepNumber" class="step-number">—</span>
+        </div>
+
+        <div class="prayer-content">
+          <div id="prayerIcon" class="prayer-icon">✝</div>
+          <h2 id="prayerTitle">Creio</h2>
+          <p id="prayerSubtitle" class="prayer-subtitle">No crucifixo</p>
+          <div id="prayerText" class="prayer-text">
+            Pressione “Começar a rezar” para iniciar.
+          </div>
+          <div id="mysteryInfo" class="mystery-info" hidden></div>
+        </div>
+
+        <div class="controls">
+          <button id="previousButton" class="secondary" disabled>← Anterior</button>
+          <button id="nextButton" class="primary">Próxima →</button>
+        </div>
+
+        <p id="modeMessage" class="mode-message">
+          Toque nas contas ou use os botões para acompanhar.
+        </p>
+      </article>
+    </section>
+
+    <section class="panel mysteries-panel">
+      <span class="eyebrow">MEDITAÇÃO</span>
+      <h2>Os cinco mistérios</h2>
+      <p>Escolha o grupo de mistérios que deseja rezar.</p>
+
+      <label for="mysterySelect">Grupo de mistérios</label>
+      <select id="mysterySelect">
+        <option value="gozosos">Gozosos</option>
+        <option value="luminosos">Luminosos</option>
+        <option value="dolorosos">Dolorosos</option>
+        <option value="gloriosos">Gloriosos</option>
+      </select>
+
+      <ol id="mysteryList" class="mystery-list"></ol>
+    </section>
+
+    <footer>
+      <p>✦ Terço Virtual · Um espaço para oração e catequese.</p>
+    </footer>
+  </main>
+
+  <dialog id="helpDialog">
+    <div class="dialog-heading">
+      <h2>Como usar o terço virtual</h2>
+      <button id="closeHelp" class="help-button" aria-label="Fechar">×</button>
+    </div>
+    <ol>
+      <li>Comece no crucifixo, rezando o Creio.</li>
+      <li>Reze o Pai-Nosso e as três Ave-Marias iniciais.</li>
+      <li>Reze o Pai-Nosso seguinte e anuncie o primeiro mistério.</li>
+      <li>Anuncie o mistério, reze o Pai-Nosso e as dez Ave-Marias.</li>
+      <li>Ao terminar cada dezena, reze o Glória ao Pai. A Oração de Fátima pode ser incluída conforme o costume da comunidade.</li>
+      <li>Depois dos cinco mistérios, reze a Salve-Rainha e encerre com o Sinal da Cruz.</li>
+    </ol>
+  </dialog>
+
+  <script src="script.js"></script>
+</body>
+</html>

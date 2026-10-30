@@ -1,0 +1,707 @@
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --navy: #102b55;
+  --blue: #2878ed;
+  --blue-light: #eaf2ff;
+  --gold: #d8a84f;
+  --ink: #17263d;
+  --muted: #68778d;
+  --line: #e2e9f2;
+  --background: #f3f6fb;
+  --white: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 80% 0%, #e7f0ff, transparent 35%),
+    var(--background);
+  font-family: "DM Sans", sans-serif;
+}
+
+button,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.topbar {
+  max-width: 1240px;
+  margin: auto;
+  padding: 22px 28px;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+
+.logo {
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  border-radius: 15px;
+  background: var(--navy);
+  color: white;
+  font-size: 27px;
+}
+
+.topbar h1 {
+  margin: 0;
+  color: var(--navy);
+  font: 800 19px "Manrope", sans-serif;
+}
+
+.topbar p {
+  margin: 3px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.help-button {
+  width: 41px;
+  height: 41px;
+  margin-left: auto;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: white;
+  color: var(--navy);
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.container {
+  max-width: 1240px;
+  margin: auto;
+  padding: 8px 28px 38px;
+}
+
+.intro {
+  max-width: 760px;
+  padding: 24px 4px 30px;
+}
+
+.eyebrow {
+  color: var(--blue);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.4px;
+}
+
+.intro h2 {
+  margin: 10px 0;
+  color: var(--navy);
+  font: 800 clamp(30px, 4vw, 46px)/1.15 "Manrope", sans-serif;
+  letter-spacing: -1.4px;
+}
+
+.intro p,
+.mysteries-panel > p {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.intro-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.primary,
+.secondary {
+  padding: 12px 17px;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  font-weight: 700;
+  transition: background 0.15s, transform 0.15s;
+}
+
+.primary {
+  background: var(--blue);
+  color: white;
+  box-shadow: 0 7px 18px #2878ed30;
+}
+
+.primary:hover {
+  background: #1769dc;
+  transform: translateY(-1px);
+}
+
+.secondary {
+  background: white;
+  border-color: var(--line);
+  color: var(--navy);
+}
+
+.secondary:hover {
+  background: #f7faff;
+}
+
+.main-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: 22px;
+  align-items: stretch;
+}
+
+.panel {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 23px;
+  box-shadow: 0 14px 40px #1430560d;
+}
+
+.rosary-panel,
+.prayer-panel {
+  padding: 24px;
+}
+
+.panel-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.panel h2 {
+  margin: 6px 0 0;
+  color: var(--navy);
+  font: 800 20px "Manrope", sans-serif;
+}
+
+.progress,
+.step-number {
+  padding: 8px 11px;
+  border-radius: 10px;
+  background: var(--blue-light);
+  color: #1e60b9;
+  font-size: 11px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.rosary-container {
+  width: 100%;
+  max-width: 490px;
+  margin: 18px auto 0;
+}
+
+#rosary {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+#rosaryLines {
+  fill: none;
+  stroke: #8793a4;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.bead {
+  cursor: pointer;
+  outline: none;
+}
+
+.bead circle {
+  fill: #ffffff;
+  stroke: #65758b;
+  stroke-width: 1.8;
+  transition: fill 0.2s, stroke 0.2s;
+}
+
+.bead.small circle {
+  fill: #ffffff;
+  stroke: #596a80;
+  stroke-width: 1.8;
+}
+
+.bead.separator circle,
+.bead.large circle {
+  fill: #ffe34d;
+  stroke: #a18a26;
+  stroke-width: 2;
+}
+
+.bead.selected circle {
+  fill: var(--blue);
+  stroke: #123e7c;
+  stroke-width: 3;
+}
+
+.bead:focus circle {
+  stroke: var(--gold);
+  stroke-width: 3.5;
+}
+
+.bead text {
+  fill: #293548;
+  font-size: 8px;
+  font-weight: 800;
+  text-anchor: middle;
+  dominant-baseline: central;
+  pointer-events: none;
+}
+
+.bead.selected text {
+  fill: white;
+}
+
+#salveMarker {
+  cursor: pointer;
+  outline: none;
+}
+
+#salveMarker:focus circle {
+  stroke: var(--blue);
+  stroke-width: 4;
+}
+
+#cross {
+  cursor: pointer;
+  outline: none;
+}
+
+#cross:focus path {
+  stroke: var(--blue);
+}
+
+.legend {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 13px;
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.legend span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.legend-dot {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  border: 1px solid #65758b;
+  border-radius: 50%;
+  background: #ffffff;
+}
+
+.selected-dot {
+  background: var(--blue);
+  border-color: #123e7c;
+}
+
+.large-dot {
+  background: #ffe34d;
+  border-color: #a18a26;
+}
+
+.tip {
+  margin: 17px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+  text-align: center;
+}
+
+.prayer-panel {
+  display: flex;
+  flex-direction: column;
+  min-height: 570px;
+}
+
+.prayer-content {
+  flex: 1;
+  padding: 25px 4px 22px;
+}
+
+.prayer-icon {
+  width: 51px;
+  height: 51px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 18px;
+  border-radius: 15px;
+  background: var(--blue-light);
+  font-size: 24px;
+}
+
+.prayer-content h2 {
+  margin-bottom: 8px;
+  font-size: 25px;
+}
+
+.prayer-subtitle {
+  margin: 0 0 20px;
+  color: var(--blue);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.prayer-text {
+  color: #40516a;
+  font-size: 15px;
+  line-height: 1.85;
+  white-space: pre-line;
+}
+
+.mystery-info {
+  margin-top: 16px;
+  padding: 13px;
+  border: 1px solid #f0dfb3;
+  border-radius: 12px;
+  background: #fff8e8;
+  color: #755519;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.controls {
+  display: flex;
+  gap: 10px;
+  padding-top: 17px;
+  border-top: 1px solid var(--line);
+}
+
+.controls button {
+  flex: 1;
+}
+
+.mode-message {
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-size: 11px;
+  text-align: center;
+}
+
+.mysteries-panel {
+  margin-top: 22px;
+  padding: 25px;
+}
+
+.mysteries-panel > p {
+  margin-bottom: 18px;
+  font-size: 13px;
+}
+
+.mysteries-panel label {
+  display: block;
+  margin-bottom: 7px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+#mysterySelect {
+  width: 100%;
+  padding: 13px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #fbfcfe;
+  color: var(--ink);
+}
+
+.mystery-list {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 11px;
+  padding: 0;
+  margin: 19px 0 0;
+  list-style: none;
+}
+
+.mystery-list li {
+  padding: 13px;
+  border: 1px solid #e6edf7;
+  border-radius: 13px;
+  background: #f5f8fd;
+  color: #42536b;
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+.mystery-list li::before {
+  content: attr(data-number);
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  margin-bottom: 9px;
+  border-radius: 8px;
+  background: #dceaff;
+  color: #1f62b9;
+  font-weight: 800;
+}
+
+footer {
+  padding: 28px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+  text-align: center;
+}
+
+dialog {
+  width: min(520px, calc(100% - 28px));
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  color: var(--ink);
+  box-shadow: 0 25px 80px #0f234240;
+}
+
+dialog::backdrop {
+  background: #0b1c3588;
+  backdrop-filter: blur(3px);
+}
+
+.dialog-heading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.dialog-heading h2 {
+  margin: 0;
+  color: var(--navy);
+}
+
+dialog li {
+  margin-bottom: 11px;
+  color: #52627a;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+ 
+/* TABLETS E CELULARES */
+@media (max-width: 850px) {
+  .container {
+    padding: 0 12px 25px;
+  }
+
+  .topbar {
+    padding: 15px 12px;
+  }
+
+  /* Terço e oração lado a lado */
+  .main-grid {
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+    gap: 12px;
+    align-items: stretch;
+  }
+
+  .rosary-panel,
+  .prayer-panel {
+    padding: 12px;
+    min-width: 0;
+  }
+
+  .prayer-panel {
+    min-height: auto;
+  }
+
+  .rosary-container {
+    width: 100%;
+    margin-top: 15px;
+  }
+
+  #rosary {
+    width: 100%;
+    height: auto;
+  }
+
+  .panel-heading {
+    flex-wrap: wrap;
+    gap: 7px;
+  }
+
+  .panel h2 {
+    font-size: 16px;
+  }
+
+  .progress,
+  .step-number {
+    font-size: 10px;
+    padding: 6px 7px;
+  }
+
+  .prayer-content {
+    padding: 18px 0;
+  }
+
+  .prayer-content h2 {
+    font-size: 20px;
+  }
+
+  .prayer-text {
+    font-size: 13px;
+    line-height: 1.7;
+    overflow-wrap: break-word;
+  }
+
+  .controls {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .controls button {
+    width: 100%;
+    padding: 10px 5px;
+    font-size: 12px;
+  }
+
+  .mode-message {
+    font-size: 10px;
+    line-height: 1.5;
+  }
+
+  .legend {
+    gap: 7px;
+    font-size: 9px;
+  }
+
+  .mystery-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* CELULARES PEQUENOS */
+@media (max-width: 460px) {
+  .container {
+    padding: 0 8px 22px;
+  }
+
+  .topbar {
+    padding: 13px 10px;
+  }
+
+  .intro {
+    padding: 18px 4px 22px;
+  }
+
+  .intro h2 {
+    font-size: 28px;
+  }
+
+  .intro p {
+    font-size: 13px;
+  }
+
+  .intro-actions button {
+    padding: 11px 12px;
+    font-size: 12px;
+  }
+
+  .main-grid {
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+    gap: 8px;
+  }
+
+  .rosary-panel,
+  .prayer-panel {
+    padding: 9px;
+    border-radius: 15px;
+  }
+
+  .panel-heading {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 7px;
+  }
+
+  .panel h2 {
+    font-size: 14px;
+  }
+
+  .eyebrow {
+    font-size: 9px;
+    letter-spacing: 0.7px;
+  }
+
+  .progress,
+  .step-number {
+    max-width: 100%;
+    font-size: 9px;
+    padding: 5px 6px;
+  }
+
+  .rosary-container {
+    margin-top: 10px;
+  }
+
+  .legend {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    font-size: 9px;
+  }
+
+  .tip {
+    font-size: 9px;
+    line-height: 1.5;
+  }
+
+  .prayer-icon {
+    width: 35px;
+    height: 35px;
+    margin-bottom: 12px;
+    border-radius: 10px;
+    font-size: 18px;
+  }
+
+  .prayer-content {
+    padding: 13px 0;
+  }
+
+  .prayer-content h2 {
+    font-size: 18px;
+  }
+
+  .prayer-subtitle {
+    font-size: 11px;
+    line-height: 1.5;
+  }
+
+  .prayer-text {
+    font-size: 12px;
+    line-height: 1.65;
+  }
+
+  .controls button {
+    font-size: 11px;
+    padding: 9px 3px;
+  }
+
+  .mysteries-panel {
+    padding: 15px;
+  }
+
+  .mystery-list {
+    grid-template-columns: 1fr;
+  }
+}
